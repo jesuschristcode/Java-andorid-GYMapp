@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_img"
+        >
+    </item>
+    <item
+        android:id="@+id/shop"
+        android:title="Shop"
+        android:icon="@drawable/shop_img"
+
+        >
+    </item>
+    <item
+        android:id="@+id/fitnessProgram"
+        android:title="fitnessprogram"
+        android:icon="@drawable/fitness_program"
+       >
+    </item>
+    <item
+        android:id="@+id/pyhsicalInfo"
+        android:title="physicailInfo"
+        android:icon="@drawable/physicial_info"
+
+        >
+    </item>
+
+
+    <item
+        android:id="@+id/nutritition"
+        android:title="nutrititon"
+        android:icon="@drawable/nutrititon"
+        >
+    </item>
+
+</menu>

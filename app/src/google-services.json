@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "218650960271",
+    "project_id": "gymapp-f9899",
+    "storage_bucket": "gymapp-f9899.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218650960271:android:5eebb238ae085e8d376bfa",
+        "android_client_info": {
+          "package_name": "com.msku.example.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlNqUi7buNfMfFftrKixdLR3UktViH0qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218650960271:android:bbbd47ee62aaf6ec376bfa",
+        "android_client_info": {
+          "package_name": "com.msku.example.gymaplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlNqUi7buNfMfFftrKixdLR3UktViH0qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
