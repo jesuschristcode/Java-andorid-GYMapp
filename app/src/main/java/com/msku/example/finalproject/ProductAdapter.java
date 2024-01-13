@@ -24,6 +24,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     private List<Product> productList;
+
+
+    private Context context;
    // private OnBuyButtonClickListener buyButtonClickListener;
 
 
@@ -49,9 +52,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateBalance();
+                updateBalance(v);
             }
-            public void updateBalance(){
+            public void updateBalance(View v){
                 User_Manager user_manager =  new User_Manager(FirebaseAuth.getInstance());
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 String documentId = user_manager.getCurrentUser().getUid();
@@ -59,23 +62,31 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         .get()
                         .addOnSuccessListener(documentSnapshot -> {
                             if (documentSnapshot.exists()) {
+
                                 // Belge varsa değeri al
                                 int currentBalance = documentSnapshot.getLong("Balance").intValue();
+                                if(currentBalance>Integer.parseInt(product.getValue())) {
+                                    // Değeri güncelleme işlemi
+                                    int newBalance = currentBalance - Integer.parseInt(product.getValue()); // Örnek: Mevcut bakiyeye 100 ekliyoruz
 
-                                // Değeri güncelleme işlemi
-                                int newBalance = currentBalance - Integer.parseInt(product.getValue()); // Örnek: Mevcut bakiyeye 100 ekliyoruz
+                                    // Güncellenmiş değeri Firestore'e yazma
+                                    db.collection("wallet").document(documentId)
+                                            .update("Balance", newBalance)
+                                            .addOnSuccessListener(aVoid -> {
+                                                // Güncelleme başarılı
+                                                System.out.println("Balance updated successfully");
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                // Güncelleme başarısız
+                                                System.out.println("Failed to update balance: " + e.getMessage());
+                                            });
+                                    Toast.makeText(v.getContext(), "Ürün başarıyla satın alındı. Yeni bakiye: " + newBalance, Toast.LENGTH_SHORT).show();
 
-                                // Güncellenmiş değeri Firestore'e yazma
-                                db.collection("wallet").document(documentId)
-                                        .update("Balance", newBalance)
-                                        .addOnSuccessListener(aVoid -> {
-                                            // Güncelleme başarılı
-                                            System.out.println("Balance updated successfully");
-                                        })
-                                        .addOnFailureListener(e -> {
-                                            // Güncelleme başarısız
-                                            System.out.println("Failed to update balance: " + e.getMessage());
-                                        });
+                                }
+                                else{
+
+                                    Toast.makeText(v.getContext(), "Bakiye yetersiz. Lütfen bakiyenizi kontrol edin.", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
                                 System.out.println("Document does not exist");
                             }
