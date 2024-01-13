@@ -12,18 +12,6 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".Physical_information"
-            android:exported="false" />
-        <activity
-            android:name=".Wallet"
-            android:exported="false" />
-        <activity
-            android:name=".Nutritition_program"
-            android:exported="false" />
-        <activity
-            android:name=".Fitness_program"
-            android:exported="false" />
-        <activity
             android:name=".Home_page"
             android:exported="false" />
         <activity

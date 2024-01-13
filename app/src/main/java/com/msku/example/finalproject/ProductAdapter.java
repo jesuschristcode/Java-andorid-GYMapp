@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -19,7 +25,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     private List<Product> productList;
    // private OnBuyButtonClickListener buyButtonClickListener;
-    private Context mContext;
+
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
@@ -43,9 +49,44 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // buyButtonClickListener.onBuyButtonClick(product);
-                Toast.makeText(mContext,"seçtiğiniz ürün:" +product.getName(),Toast.LENGTH_SHORT).show();
+                updateBalance();
             }
+            public void updateBalance(){
+                User_Manager user_manager =  new User_Manager(FirebaseAuth.getInstance());
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                String documentId = user_manager.getCurrentUser().getUid();
+                db.collection("wallet").document(documentId)
+                        .get()
+                        .addOnSuccessListener(documentSnapshot -> {
+                            if (documentSnapshot.exists()) {
+                                // Belge varsa değeri al
+                                int currentBalance = documentSnapshot.getLong("Balance").intValue();
+
+                                // Değeri güncelleme işlemi
+                                int newBalance = currentBalance - Integer.parseInt(product.getValue()); // Örnek: Mevcut bakiyeye 100 ekliyoruz
+
+                                // Güncellenmiş değeri Firestore'e yazma
+                                db.collection("wallet").document(documentId)
+                                        .update("Balance", newBalance)
+                                        .addOnSuccessListener(aVoid -> {
+                                            // Güncelleme başarılı
+                                            System.out.println("Balance updated successfully");
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            // Güncelleme başarısız
+                                            System.out.println("Failed to update balance: " + e.getMessage());
+                                        });
+                            } else {
+                                System.out.println("Document does not exist");
+                            }
+                        })
+                        .addOnFailureListener(e -> {
+                            // Firestore'dan belge çekme işlemi başarısız
+                            System.out.println("Failed to fetch document: " + e.getMessage());
+                        });
+
+            }
+
         });
     }
 
@@ -68,5 +109,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public interface OnBuyButtonClickListener {
         void onBuyButtonClick(Product product);
+
     }
 }

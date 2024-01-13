@@ -61,6 +61,18 @@ public class Home_page extends AppCompatActivity  {
                     R.id.frame_layout,new home_fragment()
             ).commit();
         });
+        binding.ntr.setOnClickListener(item ->{
+            getSupportFragmentManager().beginTransaction().replace(
+                    R.id.frame_layout,new nutritition_fragment()
+            ).commit();
+        });
+        binding.ftns.setOnClickListener(item ->{
+            getSupportFragmentManager().beginTransaction().replace(
+                    R.id.frame_layout,new program_fragment()
+            ).commit();
+        });
+
+
 
 
 

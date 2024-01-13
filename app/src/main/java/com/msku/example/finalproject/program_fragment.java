@@ -7,15 +7,56 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class program_fragment extends Fragment {
 
+    TextView monday,tuesday,wednesday,thursday,friday,saturday,sunday;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_program_fragment, container, false);
+        monday = view.findViewById(R.id.mndy);
+        tuesday = view.findViewById(R.id.tuesday);
+        wednesday = view.findViewById(R.id.wdnsday);
+        thursday = view.findViewById(R.id.Thrsday);
+        friday = view.findViewById(R.id.Frday);
+        saturday = view.findViewById(R.id.Strday);
+        sunday = view.findViewById(R.id.Snday);
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        User_Manager user_manager =  new User_Manager(FirebaseAuth.getInstance());
+
+
+        System.out.println(user_manager.getCurrentUser().getUid());
+        firestore.collection("userProgram")
+                .document(user_manager.getCurrentUser().getUid())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        ProgramFitness programFitness = documentSnapshot.toObject(ProgramFitness.class);
+                        monday.setText(programFitness.getMonday());
+                        tuesday.setText(programFitness.getTuesday());
+                        wednesday.setText(programFitness.getWednesday());
+                        thursday.setText(programFitness.getThursday());
+                        friday.setText(programFitness.getFriday());
+                        saturday.setText(programFitness.getSaturday());
+                        sunday.setText(programFitness.getSunday());
+
+                    } else {
+                        System.out.println("Document Does not exist");
+
+                    }
+                })
+                .addOnFailureListener(e -> {
+
+                });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_program_fragment, container, false);
+        return view;
     }
 }

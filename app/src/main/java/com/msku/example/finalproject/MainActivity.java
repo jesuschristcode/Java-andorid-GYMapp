@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this, Home_page.class);
                             startActivity(intent);
                             Toast.makeText(MainActivity.this, "Giriş başarılı", Toast.LENGTH_SHORT).show();
-                            // İstediğiniz aktiviteye geçiş yapabilirsiniz
                             // Örneğin: startActivity(new Intent(MainActivity.this, MainActivity.class));
                         }
 

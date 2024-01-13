@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,11 +33,13 @@ public class shop_fragment extends Fragment {
     private FirebaseFirestore firestore;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_fragment, container, false);
 
         firestore = FirebaseFirestore.getInstance();
+
 
         // RecyclerView ve Adapter tanımlamaları
         recyclerView = view.findViewById(R.id.recyclerView_shop);
@@ -91,5 +94,8 @@ public class shop_fragment extends Fragment {
                         }
                     }
                 });
+
     }
+
+
 }
