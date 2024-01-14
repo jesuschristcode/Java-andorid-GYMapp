@@ -65,7 +65,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
                                 // Belge varsa değeri al
                                 int currentBalance = documentSnapshot.getLong("Balance").intValue();
-                                if(currentBalance>Integer.parseInt(product.getValue())) {
+                                if(currentBalance>=Integer.parseInt(product.getValue())) {
                                     // Değeri güncelleme işlemi
                                     int newBalance = currentBalance - Integer.parseInt(product.getValue()); // Örnek: Mevcut bakiyeye 100 ekliyoruz
 

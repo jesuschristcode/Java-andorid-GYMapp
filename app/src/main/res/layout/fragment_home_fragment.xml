@@ -6,11 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".home_fragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gym"
+        android:scaleType="centerCrop"
+        android:alpha="0.9"/>
 
     <ImageView
         android:id="@+id/qrCode"
         android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/home_img" />
+
+
+
+
+
+
 </FrameLayout>

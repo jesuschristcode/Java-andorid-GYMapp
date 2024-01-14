@@ -32,6 +32,7 @@ public class program_fragment extends Fragment {
         User_Manager user_manager =  new User_Manager(FirebaseAuth.getInstance());
 
 
+
         System.out.println(user_manager.getCurrentUser().getUid());
         firestore.collection("userProgram")
                 .document(user_manager.getCurrentUser().getUid())
@@ -39,13 +40,13 @@ public class program_fragment extends Fragment {
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         ProgramFitness programFitness = documentSnapshot.toObject(ProgramFitness.class);
-                        monday.setText(programFitness.getMonday());
-                        tuesday.setText(programFitness.getTuesday());
-                        wednesday.setText(programFitness.getWednesday());
-                        thursday.setText(programFitness.getThursday());
-                        friday.setText(programFitness.getFriday());
-                        saturday.setText(programFitness.getSaturday());
-                        sunday.setText(programFitness.getSunday());
+                        monday.setText(programFitness.getMonday().replace(",", "\n"));
+                        tuesday.setText(programFitness.getTuesday().replace(",", "\n"));
+                        wednesday.setText(programFitness.getWednesday().replace(",", "\n"));
+                        thursday.setText(programFitness.getThursday().replace(",", "\n"));
+                        friday.setText(programFitness.getFriday().replace(",", "\n"));
+                        saturday.setText(programFitness.getSaturday().replace(",", "\n"));
+                        sunday.setText(programFitness.getSunday().replace(",", "\n"));
 
                     } else {
                         System.out.println("Document Does not exist");

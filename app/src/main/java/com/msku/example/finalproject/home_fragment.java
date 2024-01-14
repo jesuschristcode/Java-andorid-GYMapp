@@ -21,6 +21,7 @@ public class home_fragment extends Fragment {
 
 
     ImageView qrCode;
+
     User_Manager user_manager;
 
     @Override
@@ -28,6 +29,8 @@ public class home_fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_fragment, container, false);
 
         qrCode = view.findViewById(R.id.qrCode);
+
+
 
         setQrCode();
         // Inflate the layout for this fragment

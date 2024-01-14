@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="#ACACAC"
     tools:context=".program_fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:layout_marginTop="50dp"
-        >
+        android:layout_height="866dp"
+        android:layout_marginTop="5dp"
+        android:padding="16dp">
 
         <!-- Başlık Satırı -->
 
@@ -25,137 +25,176 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Monday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mndy"
                 android:layout_width="match_parent"
-                android:layout_weight="4"
                 android:layout_height="80dp"
-                android:text=""
+                android:layout_weight="4"
                 android:gravity="center"
-                />
+                android:scrollbarSize="20dp"
+                android:text=""
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="80dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Tuesday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tuesday"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="80dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:scrollbarSize="20dp"
                 android:text=""
-                android:gravity="center"/>
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="80dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Wednesday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/wdnsday"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="80dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:scrollbarSize="20dp"
                 android:text=""
-                android:gravity="center"/>
+                android:textStyle="bold|italic" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="80dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Thursday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/Thrsday"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="80dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:scrollbarSize="20dp"
                 android:text=""
-                android:gravity="center"/>
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="80dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Friday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/Frday"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="80dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:scrollbarSize="20sp"
                 android:text=""
-                android:gravity="center"/>
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="80dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Saturday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/Strday"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="80dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:scrollbarSize="20dp"
                 android:text=""
-                android:gravity="center"/>
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="80dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Sunday"
-                android:gravity="center"/>
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/Snday"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="80dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:scrollbarSize="20dp"
                 android:text=""
-                android:gravity="center"/>
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
         </TableRow>
 

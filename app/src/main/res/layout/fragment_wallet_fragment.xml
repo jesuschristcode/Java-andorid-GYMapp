@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".wallet_fragment">
+    tools:context=".wallet_fragment"
+    android:background="#595b5d">
+
+
+
+
 
 
     <ImageView
@@ -21,5 +26,6 @@
         android:text=""
         android:layout_gravity="center"
         android:layout_marginTop="90dp"
-        android:textSize="20sp"/>
+        android:textColor="@color/white"
+        android:textSize="40sp"/>
 </FrameLayout>
